@@ -3,7 +3,12 @@ const app = express();
 const axios = require("axios");
 
 app.get('/', (req, res, next) => {
-    axios.get("http://localhost:8081/ping").then((response) => {
+
+    const s1 = {
+      "port": "5372",
+      "hit": "ping"
+    }
+    axios.get("http://localhost:8081/ping", s1).then((response) => {
       console.log(response.data);
     });
     res.json("ping");
